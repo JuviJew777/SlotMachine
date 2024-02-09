@@ -5,7 +5,7 @@ using TMPro;
 
 
 /// <summary>
-/// Clase que maneja el modal de victoria donde se desplegara el score en caso de ganar
+/// Class that handles the victory modal where the score will be displayed in case of winning.
 /// </summary>
 public class RewardModalManager : MonoBehaviour
 {
@@ -33,7 +33,7 @@ public class RewardModalManager : MonoBehaviour
     TextMeshProUGUI scoreText;
 
     /// <summary>
-    /// Funcion para activar animaciones y sonidos de victoria en caso de que esta ocurra
+    /// Function to activate victory animations and sounds if it occurs.
     /// </summary>
     /// <param name="winingReels"></param>
     /// <param name="score"></param>

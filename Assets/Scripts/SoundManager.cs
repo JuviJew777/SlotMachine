@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Clase encargada del manejo de audios
+/// Class responsible for audio management.
 /// </summary>
 public class SoundManager : MonoBehaviour
 {

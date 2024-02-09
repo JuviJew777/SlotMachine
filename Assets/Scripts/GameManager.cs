@@ -5,7 +5,7 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Linq;
 /// <summary>
-/// Clase que se encarga del manejo de datos como back para poder manejarlos en front utilizando otras clases
+/// Class responsible for handling data as a backend in order to manage it on the front end using other classes.
 /// </summary>
 public class GameManager : MonoBehaviour
 {
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     #region Strip Creation and Logic
     /// <summary>
-    /// Funcion para spawnear todos los symbolos en pantalla al iniciar el juego.
+    /// "Function made to spawn all symbols on the screen at the beginning of the game.
     /// </summary>
     /// <param name="initialPosition"></param>
     /// <param name="strip"></param>
@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
         }
     }
     /// <summary>
-    /// Dependiendo el tipo de carta spawnearemos un prefab en el reel correspondiente
+    /// Depending on the card's type, we will spawn a prefab on the corresponding reel.
     /// </summary>
     /// <param name="_prefab"></param>
     /// <param name="_strip"></param>
@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Obtenemos una de las tiradas random del json ya parseado en el código
+    /// We obtain one of the random rolls from the JSON already parsed in the code.
     /// </summary>
     /// <returns></returns>
     public Spin GetRandomSpin()
@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
         return mainSpins.spins[randomNumber];
     }
     /// <summary>
-    /// Obtenemos una tirada especifica del json
+    /// We retrieve a specific roll from the JSON.
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>

@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
-/// Clase encargada del manejo y logica de los Reels dentro del juego.
+/// Class responsible for managing and implementing the logic of the reels within the game.
 /// </summary>
 public class ReelManager : MonoBehaviour
 {
@@ -60,7 +60,7 @@ public class ReelManager : MonoBehaviour
     #region Functions
 
     /// <summary>
-    /// Funcion para activar el movimiento de las bandas al momento de clickear el boton spin
+    /// Function to activate the movement of the reels when clicking the spin button.
     /// </summary>
     public void ActivateReels()
     {
@@ -85,7 +85,7 @@ public class ReelManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Coorrutina para esperar a la siguiente banda
+    /// Coroutine to wait for the next reel.
     /// </summary>
     /// <param name="seconds"></param>
     /// <param name="newSate"></param>
@@ -97,7 +97,7 @@ public class ReelManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Funcion para detener el movimiento de todos los simbolos por banda seleccionada
+    /// Function to stop the movement of all symbols on the selected reel.
     /// </summary>
     /// <param name="reelIndex"></param>
     void DeactivateReels(int reelIndex)
@@ -114,7 +114,7 @@ public class ReelManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Obtenemos la data del json ya parseada.
+    /// We retrieve the parsed data from the JSON.
     /// </summary>
     /// <param name="winSpin"></param>
     public void GetWinData(Spin winSpin)
@@ -123,7 +123,7 @@ public class ReelManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Sumamos la cantidad de ids por banda
+    /// We sum the quantity of IDs per reel.
     /// </summary>
     /// <param name="reelIndex"></param>
     public void AddID(int reelIndex)
@@ -132,7 +132,7 @@ public class ReelManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Guardamos la posision de la ultima carta spawneada
+    /// We save the position of the last spawned card.
     /// </summary>
     /// <param name="strip"></param>
     /// <param name="newCard"></param>
@@ -142,7 +142,7 @@ public class ReelManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Se activa la carta y se le posiciona justo en la posicion del pading para simular el movimiento
+    /// The card is activated and positioned exactly at the padding position.
     /// </summary>
     /// <param name="strip"></param>
     public void AddNewCard(int strip)
@@ -161,7 +161,7 @@ public class ReelManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Funcion para obtener los datos del symbolo mostrado en la zona de win
+    /// Function to retrieve the data of the symbol displayed in the win zone.
     /// </summary>
     /// <param name="strip"></param>
     /// <param name="_selectedID"></param>

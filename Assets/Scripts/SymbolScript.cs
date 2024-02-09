@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Clase que maneja datos de los symbolos que aparecen en pantalla.
+/// Class that handles data for the symbols appearing on the screen.
 /// </summary>
 public class SymbolScript : MonoBehaviour
 {
