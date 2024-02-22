@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
-  speedVel: 10
+  speedVel: 20
   CanMove: 1
 --- !u!50 &5696509509303423769
 Rigidbody2D:

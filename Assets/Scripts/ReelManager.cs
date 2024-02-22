@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class responsible for managing and implementing the logic of the reels within the game.
@@ -15,11 +16,15 @@ public class ReelManager : MonoBehaviour
     int[] currentID = new int[3];
     [SerializeField]
     ReelData[] reelsObjects = new ReelData[3];
-    GameObject[] winingSymbols = new GameObject[3];
+    public GameObject[] winingSymbols = new GameObject[3];
     Spin currentWinSpin = new Spin();
 
     Transform[] lastCardCreated = new Transform[3];
+    [SerializeField]
+    Button myButton;
+    int[] swipeSymbol;
 
+    
     enum GameStates
     {
         Playing,
@@ -38,6 +43,17 @@ public class ReelManager : MonoBehaviour
     {
         if (currentState == GameStates.End)
         {
+            myButton.interactable = true;
+            swipeSymbol = CheckSwipeSymbol();
+            if (swipeSymbol != null)
+            {
+                //winingSymbols[swipeSymbol[0]] = GameManager.instance.SymbolsPref[swipeSymbol[1]];
+                Debug.Log(swipeSymbol[1]);
+                SpriteRenderer newSprite = GameManager.instance.SymbolsPref[swipeSymbol[1]].GetComponent<SpriteRenderer>();
+                winingSymbols[swipeSymbol[0]].GetComponent<SpriteRenderer>().sprite = newSprite.sprite;
+
+                Debug.Log(GameManager.instance.SymbolsPref[swipeSymbol[1]].name);
+            }
             if(currentWinSpin.ActiveReelCount > 0)
             {
                 RewardModalManager.Instance.StartSuccessAnimation(currentWinSpin.ActiveReelCount,currentWinSpin.WinAmount);
@@ -64,9 +80,10 @@ public class ReelManager : MonoBehaviour
     /// </summary>
     public void ActivateReels()
     {
+        myButton.interactable = false;
         currentState = GameStates.Playing;
-        GetWinData(GameManager.instance.GetRandomSpin());
-        //GetWinData(GameManager.instance.GetRandomSpin(0));
+        //GetWinData(GameManager.instance.GetRandomSpin());
+        GetWinData(GameManager.instance.GetRandomSpin(0));
 
         foreach (ReelData n in reelsObjects)
         {
@@ -111,6 +128,18 @@ public class ReelManager : MonoBehaviour
                 child.GetComponent<SymbolScript>().SwitchMovement();
             }
         }
+    }
+
+    int[] CheckSwipeSymbol()
+    {
+        int strip = 0;
+        foreach(int stripSymbol in currentWinSpin.FakeIndex)
+        {
+            if (stripSymbol != 0)
+            { return new int[] {strip,stripSymbol}; }
+            strip++;
+        }
+        return null;
     }
 
     /// <summary>

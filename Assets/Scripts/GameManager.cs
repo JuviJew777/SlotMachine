@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; private set; }
     public float InstancePadding { get => instancePadding; set => instancePadding = value; }
+    public GameObject[] SymbolsPref { get => symbolsPref; set => symbolsPref = value; }
 
     public ReelManager reelManager;
 
@@ -90,6 +91,9 @@ public class GameManager : MonoBehaviour
                 case "SPADES":
                     CardPrefabInstance(symbolsPref[3], strip, id);
                     break;
+                case "WILD":
+                    CardPrefabInstance(symbolsPref[4], strip, id);
+                    break;
 
                 default: Debug.Log(99); break;
             }
@@ -126,8 +130,8 @@ public class GameManager : MonoBehaviour
     /// <returns></returns>
     public Spin GetRandomSpin()
     {
-        int randomNumber = Random.Range(0, mainSpins.spins.Count);
-        return mainSpins.spins[randomNumber];
+        int randomNumber = Random.Range(0, mainSpins.Spins.Count);
+        return mainSpins.Spins[randomNumber];
     }
     /// <summary>
     /// We retrieve a specific roll from the JSON.
@@ -136,7 +140,7 @@ public class GameManager : MonoBehaviour
     /// <returns></returns>
     public Spin GetRandomSpin(int id)
     {
-        return mainSpins.spins[id];
+        return mainSpins.Spins[id];
     }
     
 
@@ -160,7 +164,7 @@ public class reelStrips
 [System.Serializable]
 public class Strip
 {
-    public List<Spin> spins;
+    public List<Spin> Spins;
     public static Strip GetJsonData(string jsonString)
     {
         return JsonConvert.DeserializeObject<Strip>(jsonString);
@@ -173,12 +177,14 @@ public class Spin
     public List<int> ReelIndex = null;
     public int ActiveReelCount = 0;
     public int WinAmount = 0;
+    public List<int> FakeIndex = new List<int>() { 0, 0, 4 };
 
-    public Spin(List<int> reelIndex = null, int activeReelCount =0, int winAmount = 0)
+    public Spin(List<int> reelIndex = null, int activeReelCount =0, int winAmount = 0, List<int> fakeIndex = null)
     {
         ReelIndex = reelIndex;
         ActiveReelCount = activeReelCount;
         WinAmount = winAmount;
+        FakeIndex = new List<int>() { 0,0,4};
     }
 }
 

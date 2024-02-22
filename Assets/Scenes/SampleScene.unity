@@ -254,6 +254,7 @@ MonoBehaviour:
   - {fileID: 3384789969412620992, guid: f0aaef0df3b009a469b98b11d63e2769, type: 3}
   - {fileID: 4208166360504301760, guid: e05bd80ec04bc914181071216e93a16d, type: 3}
   - {fileID: 5701031489699811726, guid: 0f0eccab6d4f42e45a862b8883b32564, type: 3}
+  - {fileID: 5701031489699811726, guid: d02e444ac709da249a7d204d4de059e4, type: 3}
 --- !u!4 &43216392
 Transform:
   m_ObjectHideFlags: 0
@@ -295,6 +296,11 @@ MonoBehaviour:
     startPosition: {fileID: 1376345911}
     iD: 0
     canSpawn: 1
+  winingSymbols:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  myButton: {fileID: 318250160}
 --- !u!114 &43216394
 MonoBehaviour:
   m_ObjectHideFlags: 0
